@@ -160,16 +160,14 @@ For binary representation, treat the individual as a bit array of length $10 \ti
       - Report: `report.pdf`
         
 - **Report (70%)**
-# Grading Rubric for Report
-
-## I. Basic Completeness (20%)
+### I. Basic Completeness (20%)
 - Clear explanation of the GA implementation process. **(5%)**
 - Correct description of each operator and its function. **(5%)**
 - Introduction of both **Binary GA** and **Real-Valued GA** representations. **(5%)**
 - Parameter table: includes all standard parameters (population size, pc, pm, α, n, generations). **(5%)**
 ---
 
-## II. Systematic Experiments (50%)
+### II. Systematic Experiments (50%)
 
 1. **Crossover Method Comparison under the Same Parameter Settings (16%)**
    - Binary GA: Uniform Crossover **(4%)**, Two-point Crossover **(4%)**
@@ -185,20 +183,20 @@ For binary representation, treat the individual as a bit array of length $10 \ti
    - **Analysis:** Discuss how parameter adjustments affect different representations and crossover methods. **(8%)**
 ---
 
-## III. Extended and Controlled Experiments (12%)
+### III. Extended and Controlled Experiments (12%)
 - **Large-Scale Problem Test (N = 100):** Repeat the crossover method comparison under the large-scale setting. **(2% each, 8% total)**
   - **Notes:** Use the same crossover operators as in Section II.1. Compare how increasing problem size impacts convergence behavior.
 - **Comparison with Baseline Experiment:** Compare and analyze differences between standard and large-scale results. **(4%)**
 
 ---
 
-## IV. Conclusion (10%)
+### IV. Conclusion (10%)
 - Provide an overall conclusion summarizing the impact of different methods and parameters. **(10%)**
 - **Notes:** Must include at least: (1) effect of different representations, (2) effect of crossover/mutation, (3) effect of parameter adjustments, and (4) large-scale results.
 - 
 ---
 
-## V.  Requirement
+### V.  Requirement
 - **Every experiment must be presented with figures:**
   - Convergence curves or comparison plots are required for all experiments.
 - **Reports without figures will be considered incomplete.**
