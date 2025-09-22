@@ -159,7 +159,7 @@ For binary representation, treat the individual as a bit array of length $10 \ti
     - Report: `report.pdf`
         
 ### **Report (70%)**
-#### I. Basic Completeness (20%)
+#### I. Introduction (20%)
 - Clear explanation of the GA implementation process. **(5%)**
 - Correct description of each operator and its function. **(5%)**
 - Introduction of both Binary GA and Real-Valued GA representations. **(5%)**
