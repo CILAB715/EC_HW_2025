@@ -143,60 +143,46 @@ For binary representation, treat the individual as a bit array of length $10 \ti
 ---
 
 ## Grading
-
-- **Coding (30%)**
-  - Simple test: each failed testcase −1 point (10%)
-  - Parent Selection (3%)
-  - Crossover (8%)
-    - 2% for each method 
-  - Mutation (6%)
-    - 3% for each representation
-  - Survivor Selection (3%)
-  - Penalties:
-    - Compilation failure with Makefile / Raise error when running judger: −5
-    - Incorrect input/output format: −5
-    - Incorrect filename: −3  
-      - Executable: `main` or `main.py`  
-      - Report: `report.pdf`
+### **Coding (30%)**
+- Simple test: each failed testcase −1 point (10%)
+- Parent Selection (3%)
+- Crossover (8%)
+  - 2% for each method 
+- Mutation (6%)
+  - 3% for each representation
+- Survivor Selection (3%)
+- Penalties:
+  - Compilation failure with Makefile / Raise error when running judger: −5
+  - Incorrect input/output format: −5
+  - Incorrect filename: −3  
+    - Executable: `main` or `main.py`  
+    - Report: `report.pdf`
         
-- **Report (70%)**
-### I. Basic Completeness (20%)
+### **Report (70%)**
+#### I. Basic Completeness (20%)
 - Clear explanation of the GA implementation process. **(5%)**
 - Correct description of each operator and its function. **(5%)**
 - Introduction of both **Binary GA** and **Real-Valued GA** representations. **(5%)**
 - Parameter table: includes all standard parameters (population size, pc, pm, α, n, generations). **(5%)**
----
-
-### II. Systematic Experiments (50%)
-
+#### II. Systematic Experiments (50%)
 1. **Crossover Method Comparison under the Same Parameter Settings (16%)**
    - Binary GA: Uniform Crossover **(4%)**, Two-point Crossover **(4%)**
    - Real-Valued GA: Uniform Crossover **(4%)**, Whole Arithmetic Crossover **(4%)**
-
 2. **Representation Comparison (10%)**
    - Compare **Binary vs. Real-Valued** representation and provide analysis. **(10%)**
-
 3. **Parameter Adjustment Experiments (24%)**
    - **Crossover rate (pc):** Test different pc values under both representations and crossover methods. **(8%, each 2%)**
    - **Mutation rate (pm):** Test different pm values under both representations. **(4%)**
    - **Tournament size (n):** Test the effect of different n values under both representations. **(4%)**
    - **Analysis:** Discuss how parameter adjustments affect different representations and crossover methods. **(8%)**
----
-
-### III. Extended and Controlled Experiments (12%)
+#### III. Extended and Controlled Experiments (12%)
 - **Large-Scale Problem Test (N = 100):** Repeat the crossover method comparison under the large-scale setting. **(2% each, 8% total)**
   - **Notes:** Use the same crossover operators as in Section II.1. Compare how increasing problem size impacts convergence behavior.
 - **Comparison with Baseline Experiment:** Compare and analyze differences between standard and large-scale results. **(4%)**
-
----
-
-### IV. Conclusion (10%)
+#### IV. Conclusion (10%)
 - Provide an overall conclusion summarizing the impact of different methods and parameters. **(10%)**
 - **Notes:** Must include at least: (1) effect of different representations, (2) effect of crossover/mutation, (3) effect of parameter adjustments, and (4) large-scale results.
-- 
----
-
-### V.  Requirement
+#### V.  Requirement
 - **Every experiment must be presented with figures:**
   - Convergence curves or comparison plots are required for all experiments.
 - **Reports without figures will be considered incomplete.**
