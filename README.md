@@ -122,21 +122,23 @@ Each testcase will run several trials as `test_num` set, so the process may take
 ---
 
 ## Implementation Hints
-Below are some common issues students may face when working on this assignment. We also encourage you to ask further questions on the eeClass discussion forum for timely responses from the TAs.
+
+Below are some common issues students may face when working on this assignment. We also encourage you to ask further questions on the eeclass discussion forum for timely responses from the TAs.
 
 ### Representation
-- In the assignment specification, the variable \(c_i\) is equivalent to \(x_i\).
+In the assignment specification, the variable \(c_i\) is equivalent to \(x_i\).
 
 ### Parameters
-- **\(p_c, p_m\)**: The default settings in the spec are \(p_c = 0.9\) and \(p_m = 1/l\). However, since the judger validates results under different parameter settings, please follow the parameter values given in each testcase. For your report, you are encouraged to try different settings.
-- **\(\mu, \lambda\)**: In survivor selection using \(\mu+\lambda\), typically \(\lambda = \mu\). Please use this setting in this assignment.
+- \(p_c, p_m\): The default settings in the spec are \(p_c = 0.9\) and \(p_m = 1/l\). However, since the judger validates results under different parameter settings, please follow the parameter values given in each testcase. For your report, you are encouraged to try different settings.
+- \(\mu, \lambda\): In survivor selection using \(\mu+\lambda\), typically \(\lambda = \mu\). Please use this setting in this assignment.
 - **Tournament selection**: The \(n\)-tournament selection mentioned in the spec is equivalent to \(k\)-tournament selection. Please set \(k = 2\).
-- **\(\alpha\)**:  
-  - For whole arithmetic crossover, set \(\alpha = 0.2\).  
+- \(\alpha\):
+  - For whole arithmetic crossover, set \(\alpha = 0.2\).
   - For uniform crossover, set the probability of swapping at each position to 0.5.
 
 ### Operators
-- For binary representation, treat the individual as a bit array of length \(10 \times\) dimension (e.g., for 10 dimensions, 100 bits). Perform crossover at arbitrary bit positions (e.g., 43, 81) instead of using dimension-level units.
+For binary representation, treat the individual as a bit array of length \(10 \times \text{dimension}\) (e.g., for 10 dimensions, 100 bits). Perform crossover at arbitrary bit positions (e.g., 43, 81) instead of using dimension-level units.
+
 
 ---
 
@@ -149,12 +151,12 @@ Below are some common issues students may face when working on this assignment. 
   - Mutation (6%)
   - Survivor Selection (3%)
   - Penalties:
-    - Compilation failure with Makefile: −5
+    - Compilation failure with Makefile / Raise error when running judger: −5
     - Incorrect input/output format: −5
     - Incorrect filename: −3  
       - Executable: `main` or `main.py`  
       - Report: `report.pdf`
-
+    - Minor error: -1 each
 - **Report (70%)**
 
 ---
