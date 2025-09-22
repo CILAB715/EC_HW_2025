@@ -1,1 +1,180 @@
 # EC_HW_2025
+
+## Table of Contents
+- [Latest Announcement](#latest-announcement)
+- [Sample Code Usage](#sample-code-usage)
+- [Input/Output Format](#inputoutput-format)
+  - [Input](#input)
+  - [Output](#output)
+  - [Judger](#judger)
+- [Implementation Hints](#implementation-hints)
+  - [Representation](#representation)
+  - [Parameters](#parameters)
+  - [Operators](#operators)
+- [Grading](#grading)
+- [Submission Guidelines](#submission-guidelines)
+
+---
+
+## Latest Announcement
+(09/22) If you encounter any issues or have any questions regarding this repository, please feel free to open an issue or ask on eeclass. The TAs will respond either on eeclass or in the following note.
+
+---
+
+## Sample Code Usage
+
+Clone this repository to your local machine:
+```bash
+git clone https://github.com/CILAB715/EC_HW_2025.git
+cd EC_HW_2025
+```
+
+C++:
+```bash
+cd cpp/ && make
+./main -n 10 -r binary -p 100 -u 0 -c 0.9 -m 0.1 -g 500 -d
+```
+
+Python:
+```bash
+cd py
+python main.py -n 10 -r binary -p 100 -u 0 -c 0.9 -m 0.1 -g 500 -d
+```
+
+Example output:
+```
+-------------------------------------------
+|Parameter           |Value               |
+-------------------------------------------
+|dimension           |10                  |
+|representation      |binary              |
+|population_size     |100                 |
+|uniform_crossover   |false               |
+|crossover_method    |2-point             |
+|cross_prob          |0.9                 |
+|mut_prob            |0.1                 |
+|num_generations     |500                 |
+-------------------------------------------
+0.00145984
+```
+
+---
+
+## Input/Output Format
+
+We provide sample parser code in both C++ and Python.  
+
+You may write your own parser, but it must accept the following parameters, and your program must support at least the following 8 options. You may add more options for convenience.
+
+| Options       | Description | Default |
+| ------------- | ----------- | ------- |
+| `-n, --dimension` | The dimension of Schwefel function | 10 |
+| `-r, --representation` | The representation: binary or real-valued | binary |
+| `-p, --population_size` | Population size | 100 |
+| `-u, --uniform_crossover` | Use uniform crossover (1) or not (0). If not: binary GA → 2-point crossover, real GA → whole arithmetic crossover | 0 |
+| `-c, --pc` | Crossover probability \(p_c\) | 0.9 |
+| `-m, --pm` | Mutation probability \(p_m\) | 0.1 |
+| `-g, --generations` | Max number of generations | 500 |
+| `-d, --debug` | Enable debug prints | false |
+
+### Input
+Example testcase (`testcase/01.in`):
+
+C++:
+```bash
+./main -n 10 -r binary -p 100 -u 0 -c 0.9 -m 0.1 -g 500
+```
+
+Python:
+```bash
+python3 ./main.py -n 10 -r binary -p 100 -u 0 -c 0.9 -m 0.1 -g 500
+```
+
+The first line of the `.in` file contains the parameters.  
+The second line shows the configuration table, printed only if `-d` is enabled.
+
+### Output
+- Only print the configuration table when `-d` or `--debug` is used.  
+- Always output the best fitness of the final generation.
+
+Example:
+```
+50.5991
+```
+
+`testcase/*.out` files contain:
+1. Mean best fitness (120 TA trials)  
+2. Standard deviation  
+
+Your code will be run for 30 trials. If the mean fitness is within two standard deviations, it is correct.
+
+### Judger
+- Due to the stochastic nature of evolutionary computation, TAs will modifies line 6 in `judger.py` to set `test_num = 30` in grading process. This means each program is executed 30 times, and the average fitness is checked against the expected range.  
+  - If you notice that with `test_num = 1`, your results sometimes pass and sometimes fail, try increasing `test_num` to examine the averaged performance.
+
+To run judger, place your executable and `judger.py` in the same directory, then run:
+```bash
+python judger.py
+```
+
+Each testcase will run several trials as `test_num` set, so the process may take a while.
+
+---
+
+## Implementation Hints
+Below are some common issues students may face when working on this assignment. We also encourage you to ask further questions on the eeClass discussion forum for timely responses from the TAs.
+
+### Representation
+- In the assignment specification, the variable \(c_i\) is equivalent to \(x_i\).
+
+### Parameters
+- **\(p_c, p_m\)**: The default settings in the spec are \(p_c = 0.9\) and \(p_m = 1/l\). However, since the judger validates results under different parameter settings, please follow the parameter values given in each testcase. For your report, you are encouraged to try different settings.
+- **\(\mu, \lambda\)**: In survivor selection using \(\mu+\lambda\), typically \(\lambda = \mu\). Please use this setting in this assignment.
+- **Tournament selection**: The \(n\)-tournament selection mentioned in the spec is equivalent to \(k\)-tournament selection. Please set \(k = 2\).
+- **\(\alpha\)**:  
+  - For whole arithmetic crossover, set \(\alpha = 0.2\).  
+  - For uniform crossover, set the probability of swapping at each position to 0.5.
+
+### Operators
+- For binary representation, treat the individual as a bit array of length \(10 \times\) dimension (e.g., for 10 dimensions, 100 bits). Perform crossover at arbitrary bit positions (e.g., 43, 81) instead of using dimension-level units.
+
+---
+
+## Grading
+
+- **Coding (30%)**
+  - Simple test: each failed testcase −1 point (10%)
+  - Parent Selection (3%)
+  - Crossover (8%)
+  - Mutation (6%)
+  - Survivor Selection (3%)
+  - Penalties:
+    - Compilation failure with Makefile: −5
+    - Incorrect input/output format: −5
+    - Incorrect filename: −3  
+      - Executable: `main` or `main.py`  
+      - Report: `report.pdf`
+
+- **Report (70%)**
+
+---
+
+## Submission Guidelines
+
+Suppose your student ID is `114062500`.
+
+If using **C/C++**, package your submission as `114062500_SCH.zip/rar`, containing:
+```
+Makefile          (ensure the executable is named "main")
+report.pdf        (must be named exactly "report.pdf")
+other source code (e.g., main.cpp, parser.h, parser.cpp, ...)
+```
+
+If using **Python**, package your submission as `114062500_SCH.zip/rar`, containing:
+```
+main.py           (must be named exactly "main.py")
+report.pdf        (must be named exactly "report.pdf")
+other source code (e.g., ga.py, parser.py, ...)
+```
+
+Please strictly follow these naming and structural requirements.
