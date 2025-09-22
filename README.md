@@ -17,7 +17,7 @@
 ---
 
 ## Latest Announcement
-(09/22) If you encounter any issues or have any questions regarding this repository, please feel free to open an issue or ask on eeclass. The TAs will respond either on eeclass or in the following note.
+(09/22) If you encounter any issues or have any questions regarding this repository, please feel free to open an issue or ask on eeclass.
 
 ---
 
