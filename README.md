@@ -31,7 +31,8 @@ cd EC_HW_2025
 
 C++:
 ```bash
-cd cpp/ && make
+cd cpp
+make
 ./main -n 10 -r binary -p 100 -u 0 -c 0.9 -m 0.1 -g 500 -d
 ```
 
@@ -87,7 +88,7 @@ C++:
 
 Python:
 ```bash
-python3 ./main.py -n 10 -r binary -p 100 -u 0 -c 0.9 -m 0.1 -g 500
+python ./main.py -n 10 -r binary -p 100 -u 0 -c 0.9 -m 0.1 -g 500
 ```
 
 The first line of the `.in` file contains the parameters.  
@@ -152,12 +153,12 @@ For binary representation, treat the individual as a bit array of length $10 \ti
   - 3% for each representation
 - Survivor Selection (3%)
 - Penalties:
-  - Compilation failure with Makefile / Raise error when running judger: −5
-  - Incorrect input/output format: −5
+  - Compilation failure with Makefile / Raise error when running judger / Incorrect input/output format: −5
   - Incorrect filename: −3  
     - Executable: `main` or `main.py`  
     - Report: `report.pdf`
-        
+  - Lack of code efficiency: -3
+  
 ### **Report (70%)**
 #### I. Introduction (12%)
 - Clear explanation of the GA implementation process. **(3%)**
